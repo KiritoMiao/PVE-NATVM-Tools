@@ -19,7 +19,7 @@ if __name__ == '__main__':
     print(output)
     if input("Are you sure you want to delete this rule? (y/n)") == 'y':
         cur.execute("DELETE FROM rule WHERE id=?", (rule_id,))
-        core.del_nat_rule(row[4], row[2], row[1], row[3])
+        core.del_nat_rule(str(row[4]), str(row[2]), str(row[1]), str(row[3]))
         con.commit()
         print("Rule deleted.")
     con.close()

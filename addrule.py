@@ -2,7 +2,7 @@ import core
 import sqlite3
 if __name__ == '__main__':
     internal_ip = input("Enter Internal Ip:")
-    external_port = input("Enter External Ip:")
+    external_port = input("Enter External Port:")
     internal_port = input("Enter Internal Port:")
     protocol = input("Enter protocol(TCP/UDP):")
     con = sqlite3.connect('nat.db')

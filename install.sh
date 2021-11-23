@@ -6,8 +6,8 @@ echo "Proxmox VE Nat Tools Installer"
 echo ""
 echo "This installer will install the following: "
 echo " - Proxmox VE Nat Tools"
-echo " - Proxmox VE Nat Tools Web Interface"
-echo " - Proxmox VE Nat Tools API Server"
+#echo " - Proxmox VE Nat Tools Web Interface"
+#echo " - Proxmox VE Nat Tools API Server"
 echo ""
 read -p 'Input Private network bridge name: ' VMBRNM
 read -p 'Input Private network host IP: ' ADDRESS
