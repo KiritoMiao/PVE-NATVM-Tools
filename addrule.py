@@ -14,7 +14,7 @@ if __name__ == '__main__':
     external_port = input("Enter External Port:")
     internal_port = input("Enter Internal Port:")
     protocol = input("Enter protocol(tcp/udp):")
-    if protocol != "tcp" or protocol != "udp":
+    if protocol != "tcp" and protocol != "udp":
         sys.exit("Invalid protocol")
     if external_port < 0 or external_port > 65535:
         sys.exit("Invalid external port")
