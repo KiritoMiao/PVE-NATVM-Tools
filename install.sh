@@ -41,11 +41,11 @@ git clone https://github.com/KiritoMiao/PVE-NATVM-Tools ./
 python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
-echo 'VMBRNM = "'$VMBRNM'"' > core/config.py
-echo 'ADDRESS = "'$ADDRESS'"' > core/config.py
-echo 'NETMASK = "'$NETMASK'"' > core/config.py
-echo 'CIDR = "'$CIDR'"' > core/config.py
-echo 'PUBLIC_IF = "'$PUBLIC_IF'"' > core/config.py
+echo 'VMBRNM = "'$VMBRNM'"' > config.py
+echo 'ADDRESS = "'$ADDRESS'"' > config.py
+echo 'NETMASK = "'$NETMASK'"' > config.py
+echo 'CIDR = "'$CIDR'"' > config.py
+echo 'PUBLIC_IF = "'$PUBLIC_IF'"' > config.py
 python3 setup.py
 
 echo ""
