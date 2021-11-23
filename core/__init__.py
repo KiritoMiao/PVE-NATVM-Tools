@@ -1,5 +1,5 @@
 import os
-exec(compile(open("../config.py", "rb").read(), "../config.py", 'exec'))
+exec(compile(open("config.py", "rb").read(), "config.py", 'exec'))
 
 def ping():
     print("Pong")

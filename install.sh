@@ -33,11 +33,7 @@ iptables-save > /etc/iptables/rules.v4
 echo ""
 echo "Install Proxmox VE Nat Tools and all it dependents..."
 echo ""
-echo 'VMBRNM = "'$VMBRNM'"' > config.py
-echo 'ADDRESS = "'$ADDRESS'"' > config.py
-echo 'NETMASK = "'$NETMASK'"' > config.py
-echo 'CIDR = "'$CIDR'"' > config.py
-echo 'PUBLIC_IF = "'$PUBLIC_IF'"' > config.py
+
 
 apt install python3 python3-pip python3-venv git -y
 git clone https://github.com/KiritoMiao/PVE-NATVM-Tools ./
@@ -45,6 +41,11 @@ git clone https://github.com/KiritoMiao/PVE-NATVM-Tools ./
 python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
+echo 'VMBRNM = "'$VMBRNM'"' > core/config.py
+echo 'ADDRESS = "'$ADDRESS'"' > core/config.py
+echo 'NETMASK = "'$NETMASK'"' > core/config.py
+echo 'CIDR = "'$CIDR'"' > core/config.py
+echo 'PUBLIC_IF = "'$PUBLIC_IF'"' > core/config.py
 python3 setup.py
 
 echo ""
