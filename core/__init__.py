@@ -20,7 +20,7 @@ def check_nat_rule(protocol, external_port, internal_ip, internal_port):
 def set_nat_rule(protocol, external_port, internal_ip, internal_port):
     if check_nat_rule(protocol, external_port, internal_ip, internal_port) == 0:
         result = os.system(
-            "/usr/sbin/iptables -A PREROUTING -t nat -p " + protocol + " -m " + protocol + " --dport " + external_port + " -j DNAT --to-destination " + internal_ip + ":" + internal_port)
+            "/usr/sbin/iptables -A PREROUTING -t nat -p " + protocol + " -m " + protocol + " -i " + PUBLIC_IF + " -o " + VMBRNM + " --dport " + external_port + " -j DNAT --to-destination " + internal_ip + ":" + internal_port)
         if result == 0:
             # print("success")
             return 0
@@ -35,7 +35,7 @@ def set_nat_rule(protocol, external_port, internal_ip, internal_port):
 def del_nat_rule(protocol, external_port, internal_ip, internal_port):
     if check_nat_rule(protocol, external_port, internal_ip, internal_port) == 1:
         result = os.system(
-            "/usr/sbin/iptables -D PREROUTING -t nat -p " + protocol + " -m " + protocol + " --dport " + external_port + " -j DNAT --to-destination " + internal_ip + ":" + internal_port)
+            "/usr/sbin/iptables -D PREROUTING -t nat -p " + protocol + " -m " + protocol + " -i " + PUBLIC_IF + " -o " + VMBRNM + " --dport " + external_port + " -j DNAT --to-destination " + internal_ip + ":" + internal_port)
         if result == 0:
             # print("success")
             return 0
