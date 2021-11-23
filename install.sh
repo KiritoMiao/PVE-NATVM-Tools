@@ -40,3 +40,8 @@ python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
 python3 setup.py
+
+echo ""
+echo "Enable Internal Bridge, this might cause lost network..."
+echo ""
+service networking restart
