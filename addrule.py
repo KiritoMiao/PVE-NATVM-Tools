@@ -30,6 +30,7 @@ if __name__ == '__main__':
     cur.execute("INSERT INTO rule(internalIp,externalPort,internalPort,protocol) VALUES(?,?,?,?)",
                 (internal_ip, external_port, internal_port, protocol))
     core.set_nat_rule(protocol, external_port, internal_ip, internal_port)
+    core.save_iptables()
     con.commit()
     con.close()
     print("Rule added successfully")
