@@ -13,7 +13,7 @@ read -p 'Input Private network bridge name: ' VMBRNM
 read -p 'Input Private network host IP: ' ADDRESS
 read -p 'Input Private network netmask: ' NETMASK
 read -p 'Input Private network CIDR: ' CIDR
-
+read -p 'Input Public network interface name: ' PUBLIC_IF
 echo ""
 echo "Initial System..."
 echo ""
@@ -33,6 +33,12 @@ iptables-save > /etc/iptables/rules.v4
 echo ""
 echo "Install Proxmox VE Nat Tools and all it dependents..."
 echo ""
+echo 'VMBRNM = "'$VMBRNM'"' > config.py
+echo 'ADDRESS = "'$ADDRESS'"' > config.py
+echo 'NETMASK = "'$NETMASK'"' > config.py
+echo 'CIDR = "'$CIDR'"' > config.py
+echo 'PUBLIC_IF = "'$PUBLIC_IF'"' > config.py
+
 apt install python3 python3-pip python3-venv git -y
 git clone https://github.com/KiritoMiao/PVE-NATVM-Tools ./
 

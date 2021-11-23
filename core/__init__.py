@@ -1,8 +1,9 @@
 import os
-
+exec(compile(open("../config.py", "rb").read(), "../config.py", 'exec'))
 
 def ping():
     print("Pong")
+    print(VMBRNM, ADDRESS, NETMASK, CIDR, PUBLIC_IF)
     return 0
 
 
