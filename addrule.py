@@ -16,12 +16,15 @@ if __name__ == '__main__':
     protocol = input("Enter protocol(tcp/udp):")
     if protocol != "tcp" and protocol != "udp":
         sys.exit("Invalid protocol")
-    if int(external_port) < 0 or int(external_port) > 65535:
-        sys.exit("Invalid external port")
-    if int(internal_port) < 0 or int(internal_port) > 65535:
-        sys.exit("Invalid internal port")
-    if is_valid_ip(internal_ip) == False:
-        sys.exit("Invalid internal ip")
+    try:
+        if int(external_port) < 0 or int(external_port) > 65535:
+            sys.exit("Invalid external port")
+        if int(internal_port) < 0 or int(internal_port) > 65535:
+            sys.exit("Invalid internal port")
+        if is_valid_ip(internal_ip) == False:
+            sys.exit("Invalid internal ip")
+    except ValueError:
+        print("Invalid input")
     con = sqlite3.connect('nat.db')
     cur = con.cursor()
     cur.execute("INSERT INTO rule(internalIp,externalPort,internalPort,protocol) VALUES(?,?,?,?)",
